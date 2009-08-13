@@ -10,7 +10,7 @@ import string
 wikipedia_base_url = "http://en.wikipedia.org/w/index.php?title=%s&printable=yes"
 url = wikipedia_base_url % 'Boca_Raton'
 opener = urllib2.build_opener()
-opener.addheaders = [('User-agent', 'MyWikipediaInfoScraper/0.1')]
+opener.addheaders = [('User-agent', 'lookingGlass/0.1')]
 page = opener.open(url)
 soup = BeautifulSoup(page)
 
