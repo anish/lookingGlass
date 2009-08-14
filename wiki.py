@@ -37,7 +37,7 @@ for i in gringo:
 				search_tag = tag.next()
 				search_tag = re.sub(',','.2C',re.sub(' ','_',search_tag))
 			except: search_tag = ""
-		print string.join(para_list, '\n')
+		print re.sub('\[.*\]','',string.join(para_list, '\n'))
 		para_list = []
 	else:
 		para_list.append(re.sub('<.*?>','',str(i)))
