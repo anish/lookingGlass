@@ -2,8 +2,8 @@
 
 import urllib2
 from BeautifulSoup import BeautifulSoup
-import xml.dom.minidom
-from xml.dom import minidom
+#import xml.dom.minidom
+#from xml.dom import minidom
 import re
 import string
 import os
