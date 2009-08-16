@@ -11,6 +11,7 @@ import sys
 
 if len(sys.argv) != 2:
 	print "Incorrect arguments"
+	exit(22)
 else:
 	dir_name = re.sub(' ','_',sys.argv[1])
 
