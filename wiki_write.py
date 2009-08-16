@@ -41,14 +41,13 @@ search_tag = re.sub(',','.2C',re.sub(' ','_',tag.next()))
 for i in para_soup:
 	if search_tag in str(i.a):
 		if filename:
+			f = open(dir_name + filename,'w')
 			#print "\n",re.sub('.2C',',',re.sub('_',' ',filename)),"\n"
 			filename = search_tag
 			try:
 				search_tag = tag.next()
 				search_tag = re.sub(',','.2C',re.sub(' ','_',search_tag))
 			except: search_tag = ""
-		if filename:
-			f = open(dir_name + filename,'w')
 			f.write(re.sub('\[.*\]','',string.join(para_list, '\n')) + "\n")
 			para_list =[]
 			f.close()
