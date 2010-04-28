@@ -39,6 +39,8 @@ for dir_name in page_list:
 	if dir_name != base_dir_name:
 		page = opener.open(url)
 		soup = BeautifulSoup(page)
+		if not soup.text:
+			continue
 		if "REDIRECT" in soup.text.contents[0]:
 			dir_name = re.sub(' ','_',re.sub(r'.*\[\[(.*)\]\]',r'\1',soup.text.contents[0]))
 			url = wikipedia_base_url % base_dir_name
@@ -81,7 +83,9 @@ for dir_name in page_list:
 	regex = re.compile("=?=?.*?==",re.DOTALL|re.MULTILINE)
 	tag = iter(contents)
 	filename = tag.next()
-	search_tag = tag.next()
+	try:
+		search_tag = tag.next()
+	except: search_tag = ''
 	text = regex.findall(broth)
 	for i in text:
         	if search_tag in i.strip("="):
